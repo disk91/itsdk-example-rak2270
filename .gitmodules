@@ -1,3 +1,0 @@
-[submodule "stm32-it-sdk"]
-	path = stm32-it-sdk
-	url = https://github.com/disk91/stm32-it-sdk
