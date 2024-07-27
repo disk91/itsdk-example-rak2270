@@ -15,6 +15,11 @@ Get project and associated submodules
 git clone --recurse-submodules git@github.com:disk91/itsdk-example-sigfox-seeedE5.git
 ```
 
+In case you cloned w/o load submodules
+```
+git submodule update --init --recursive
+```
+
 
 ## Getting started
 

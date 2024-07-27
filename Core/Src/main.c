@@ -21,7 +21,6 @@
 #include "iwdg.h"
 #include "usart.h"
 #include "rtc.h"
-#include "spi.h"
 #include "subghz.h"
 #include "tim.h"
 #include "gpio.h"
@@ -95,11 +94,9 @@ int main(void)
   MX_GPIO_Init();
   MX_RTC_Init();
   MX_IWDG_Init();
-  MX_USART2_UART_Init();
-  MX_LPUART1_UART_Init();
   MX_SUBGHZ_Init();
-  MX_SPI1_Init();
   MX_TIM1_Init();
+  MX_LPUART1_UART_Init();
   /* USER CODE BEGIN 2 */
   itsdk_setup();
   /* USER CODE END 2 */
@@ -136,12 +133,10 @@ void SystemClock_Config(void)
 
   /** Initializes the CPU, AHB and APB buses clocks
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI
-                              |RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE
+                              |RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS_PWR;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.LSIDiv = RCC_LSI_DIV1;
   RCC_OscInitStruct.HSEDiv = RCC_HSE_DIV1;
   RCC_OscInitStruct.LSIState = RCC_LSI_ON;
